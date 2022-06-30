@@ -32,10 +32,8 @@
         </nav>
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            {{-- <a href="{{ route('dashboard') }}" class="brand-link"> --}}
-            <a href="#" class="brand-link">
-                <img src="{{ asset('admin/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+            <a href="{{ route('dashboard.index') }}" class="brand-link">
+                <i class="ml-5 fas fa-tachometer-alt"></i>
                 <span class="brand-text font-weight-light">Dashboard</span>
             </a>
 
@@ -54,18 +52,21 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <li class="nav-item">
-                            <a href="{{ route('dashboard.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
+                        <li class="nav-header">Dashboard</li>
 
                         <li class="nav-item mt-auto">
                             <a href="{{ route('dashboard.category.index') }}"
                                 class="nav-link {{ (request()->is('dashboard/category*')) ? 'active': '' }}">
-                                <i class="nav-icon fas fa-tags"></i>
+                                <i class="nav-icon fas fa-box"></i>
                                 <p>Category</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mt-auto">
+                            <a href="{{ route('dashboard.tag.index') }}"
+                                class="nav-link {{ (request()->is('dashboard/tag*')) ? 'active': '' }}">
+                                <i class="nav-icon fas fa-tags"></i>
+                                <p>Tag</p>
                             </a>
                         </li>
 

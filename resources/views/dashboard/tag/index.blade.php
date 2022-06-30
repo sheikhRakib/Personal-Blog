@@ -3,8 +3,8 @@
 @section('content')
 <div class="content-header">
     <div class="container">
-        {{ Breadcrumbs::render('category.index') }}
-    </div>
+        {{ Breadcrumbs::render('tag.index') }}
+</div>
 </div>
 
 <div class="content">
@@ -14,8 +14,8 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Category List</h3>
-                            <a href="{{ route('dashboard.category.create') }}" class="btn btn-primary">Create Category</a>
+                            <h3 class="card-title">Tag List</h3>
+                            <a href="{{ route('dashboard.tag.create') }}" class="btn btn-primary">Create Tag</a>
                         </div>
                     </div>
                     <div class="card-body p-0">
@@ -27,13 +27,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($categories as $category)
+                                @forelse ($tags as $tag)
                                     <tr>
-                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $tag->name }}</td>
                                         <td class="d-flex">
-                                            <a href="{{ route('dashboard.category.show', [$category->slug]) }}" class="btn btn-sm btn-success mr-1"> <i class="fas fa-eye"></i> </a>
-                                            <a href="{{ route('dashboard.category.edit', [$category->slug]) }}" class="btn btn-sm btn-primary mr-1"> <i class="fas fa-edit"></i> </a>
-                                            <form action="{{ route('dashboard.category.destroy', [$category->slug]) }}" class="mr-1" method="POST">
+                                            <a href="{{ route('dashboard.tag.show', [$tag->slug]) }}" class="btn btn-sm btn-success mr-1"> <i class="fas fa-eye"></i> </a>
+                                            <a href="{{ route('dashboard.tag.edit', [$tag->slug]) }}" class="btn btn-sm btn-primary mr-1"> <i class="fas fa-edit"></i> </a>
+                                            <form action="{{ route('dashboard.tag.destroy', [$tag->slug]) }}" class="mr-1" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
@@ -51,7 +51,7 @@
                         </table>
                     </div>
                     <div class="card-footer d-flex justify-content-center">
-                        {{ $categories->links('vendor.pagination.bootstrap-4') }}
+                        {{ $tags->links('vendor.pagination.bootstrap-4') }}
                     </div>
                 </div>
             </div>
