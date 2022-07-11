@@ -38,21 +38,11 @@
             </a>
 
             <div class="sidebar">
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="{{ asset('admin/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                            alt="User Image">
-                    </div>
-                    <div class="info">
-                        {{-- <a href="{{ route('user.profile') }}" class="d-block">{{ Auth::user()->name }}</a> --}}
-                        <a href="#" class="d-block">{{ Auth::user()->name ?? 'Anonymous' }}</a>
-                    </div>
-                </div>
-
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <li class="nav-header">Dashboard</li>
+                        <li></li>
+                        <li class="nav-header"><b>Dashboard</b></li>
 
                         <li class="nav-item mt-auto">
                             <a href="{{ route('dashboard.category.index') }}"
@@ -70,35 +60,27 @@
                             </a>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('dashboard') }}"
-                        class="nav-link {{ (request()->is('admin/dashboard')) ? 'active': '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                        </a>
+                        <li class="nav-item mt-auto">
+                            <a href="{{ route('dashboard.post.index') }}"
+                                class="nav-link {{ (request()->is('dashboard/post*')) ? 'active': '' }}">
+                                <i class="nav-icon fas fa-pen-square"></i>
+                                <p>Post</p>
+                            </a>
                         </li>
 
+                        <li class="nav-header"><b>Account</b></li>
+
                         <li class="nav-item mt-auto">
-                            <a href="{{ route('tag.index') }}"
-                                class="nav-link {{ (request()->is('admin/tag*')) ? 'active': '' }}">
-                                <i class="nav-icon fas fa-tag"></i>
-                                <p>
-                                    Tags
-                                </p>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                class="nav-link">
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
+                                <p>Logout</p>
                             </a>
                         </li>
-                        <li class="nav-item mt-auto">
-                            <a href="{{ route('post.index') }}"
-                                class="nav-link {{ (request()->is('admin/post*')) ? 'active': '' }}">
-                                <i class="nav-icon fas fa-pen-square"></i>
-                                <p>
-                                    Post
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item mt-auto">
+
+
+                        {{-- <li class="nav-item mt-auto">
                             <a href="{{ route('contact.index') }}"
                                 class="nav-link {{ (request()->is('admin/contact*')) ? 'active': '' }}">
                                 <i class="nav-icon fas fa-envelope"></i>
@@ -106,17 +88,8 @@
                                     Messages
                                 </p>
                             </a>
-                        </li>
-                        <li class="nav-item mt-auto">
-                            <a href="{{ route('user.index') }}"
-                                class="nav-link {{ (request()->is('admin/user*')) ? 'active': '' }}">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>
-                                    User
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item mt-auto">
+                        </li> --}}
+                        {{-- <li class="nav-item mt-auto">
                             <a href="{{ route('setting.index') }}"
                                 class="nav-link {{ (request()->is('admin/setting')) ? 'active': '' }}">
                                 <i class="nav-icon fas fa-cog"></i>
@@ -126,7 +99,6 @@
                             </a>
                         </li> --}}
 
-                        <li class="nav-header">Your Account</li>
 
                         {{-- <li class="nav-item mt-auto">
                             <a href="{{ route('user.profile') }}"
@@ -137,16 +109,7 @@
                         </p>
                         </a>
                         </li>
-                        <li class="nav-item mt-auto">
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                class="nav-link">
-                                <i class="nav-icon fas fa-sign-out-alt"></i>
-                                <p>
-                                    Logout
-                                </p>
-                            </a>
-                        </li>
+
                         <li class="text-center mt-5">
                             <a href="{{ route('website') }}" class="btn btn-primary text-white" target="_blank">
                                 <p class="mb-0">
