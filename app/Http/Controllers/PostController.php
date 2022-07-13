@@ -98,7 +98,7 @@ class PostController extends Controller
 
         Session::flash('success', 'Post updated.');
 
-        return redirect()->route('dashboard.post.edit', $post);
+        return redirect()->route('dashboard.post.edit', $post);;
     }
 
     public function destroy(Post $post)

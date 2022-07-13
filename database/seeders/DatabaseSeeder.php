@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -12,11 +13,6 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         User::factory()->create([
@@ -25,8 +21,14 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
         ]);
 
-        // Category::factory(11)->create();
-        Tag::factory(11)->create();
+        Setting::factory()->create([
+            'name' => 'Example.com',
+            'copyright' => 'RI',
+            'description' => 'Simple Personal Website',
+        ]);
+
+        Category::factory(5)->create();
+        Tag::factory(6)->create();
         Post::factory(20)->create();
     }
 }
